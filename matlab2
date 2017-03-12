@@ -1,1 +1,24 @@
+matlab2
 
+plot	//作图	
+>> x = 0:pi/100:2*pi;
+y = sin(x);
+plot(x,y,'r--')		//'g:*'控制颜色线型
+>> xlabel('x')		//横坐标名
+>> ylabel('sin(x)')	//纵坐标名
+>> title('Plot of the sine function')//图名
+			
+n = 50; // 50 data points
+r = rand(n,1);
+plot(r)
+// Draw a line from (0,m) to (n,m)
+m = mean(r);		//矩阵的均值，默认的是求各列的均值
+hold on			//hold on :使当前轴及图形保持而不被刷新,再次基础上再画图;
+plot([0,n],[m,m])
+hold off		//hold off :使当前轴及图形不在具备被刷新的性质,关闭在此基础上的再画图.
+title('Mean of Random Uniform Data')		//图名
+text(1.5,0.3,'cos(x)')    //将cosx这个注解加到坐标中的某个位置
+gtext('sin(x)')      //用鼠标的光标定位,将sinx这个注解放在你鼠标点击的地方
+
+[X,Y] = meshgrid(x,y)
+//输出X的每一行的数值都是复制的x的值；输出Y的每一列的数值都是复制的y的值，创建一个平面坐标系
