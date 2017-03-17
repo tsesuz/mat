@@ -20,5 +20,18 @@ title('Mean of Random Uniform Data')		//图名
 text(1.5,0.3,'cos(x)')    //将cosx这个注解加到坐标中的某个位置
 gtext('sin(x)')      //用鼠标的光标定位,将sinx这个注解放在你鼠标点击的地方
 
-[X,Y] = meshgrid(x,y)
-//输出X的每一行的数值都是复制的x的值；输出Y的每一列的数值都是复制的y的值，创建一个平面坐标系
+
+>> [X,Y]=meshgrid(-2:0.2:2);//输出X的每一行的数值都是复制的x的值；输出Y的每一列的数值都是复制的y的值，创建一个平面坐标系
+>> Z=X .* exp(-X.^2 - Y.^2);
+>> surf(X,Y,Z)
+
+
+t = 0:pi/10:2*pi;
+[X,Y,Z] = cylinder(4*cos(t));
+subplot(2,2,1); mesh(X); title('X');	//subplot(m,n,p) 多个图画到一个平面上
+					//m表示是图排成m行，n表示图排成n列
+					//p是指你现在要把曲线画到figure中哪个图上（第p个子图）
+subplot(2,2,2); mesh(Y); title('Y');	
+subplot(2,2,3); mesh(Z); title('Z');	//mesh(z)是以x=1:size(z),y=1:size(z)作为平面坐标绘制曲面;
+					//mesh(x,y,z)是以x,y的值作为平面坐标区间绘制曲面。
+subplot(2,2,4); mesh(X,Y,Z); title('X,Y,Z');
